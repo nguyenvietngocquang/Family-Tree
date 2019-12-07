@@ -19,7 +19,7 @@ import de.blox.graphview.tree.BuchheimWalkerAlgorithm;
 import de.blox.graphview.tree.BuchheimWalkerConfiguration;
 
 public class ViewTreeActivity extends AppCompatActivity {
-    ArrayList<Member> list = new ArrayList<Member>();
+    static ArrayList<Member> list = new ArrayList<Member>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

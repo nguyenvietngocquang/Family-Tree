@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class AddMemberActivity extends AppCompatActivity {
-    ArrayList<Member> list = new ArrayList<Member>();
+    static ArrayList<Member> list = new ArrayList<Member>();
 
     Calendar calendar;
     String name, father_name, spouse_name;
@@ -128,27 +128,11 @@ public class AddMemberActivity extends AppCompatActivity {
                 } else if (!father_name.equals("") && father_name.equals(spouse_name)) {
                     Toast.makeText(AddMemberActivity.this, "Father's name can't be the same as spouse's name!", Toast.LENGTH_LONG).show();
                 } else {
-                    if (!father_name.equals("")) {
-                        for (Member member : list) {
-                            if (member.getName().equals(father_name)) {
-                                father = new Member(member);
-                                break;
-                            }
-                        }
-                    }
-
-                    if (!spouse_name.equals("")) {
-                        for (Member member : list) {
-                            if (member.getName().equals(spouse_name)) {
-                                spouse = new Member(member);
-                                break;
-                            }
-                        }
-                    }
+                    father = Function.findMember(father_name, list);
+                    spouse = Function.findMember(spouse_name, list);
 
                     Member member;
                     if (father_name.equals("") && spouse_name.equals("")) {
-                        Toast.makeText(AddMemberActivity.this, name, Toast.LENGTH_SHORT).show();
                         member = new Member(name, tDay, tMonth, tYear, male);
                     } else if (father_name.equals("")) {
                         member = new Member(spouse, name, tDay, tMonth, tYear, male);

@@ -3,7 +3,7 @@ package com.example.familytree;
 import java.io.Serializable;
 import java.util.Calendar;
 
-public class Member implements Serializable {
+public class Member implements Serializable, Comparable<Member> {
     private String name;
     private int day, month, year;
     private int age;
@@ -12,28 +12,6 @@ public class Member implements Serializable {
     private Member spouse;
 
     public Member() {
-    }
-
-    public Member(String name, boolean male) {
-        this.name = name;
-        this.male = male;
-    }
-
-    public Member(String name, boolean male, Member father) {
-        this.name = name;
-        this.male = male;
-        this.father = father;
-    }
-
-    public Member(Member member) {
-        this.name = member.name;
-        this.day = member.day;
-        this.month = member.month;
-        this.year = member.year;
-        this.male = member.male;
-        this.age = member.age;
-        this.father = member.father;
-        this.spouse = member.spouse;
     }
 
     public Member(String name, int day, int month, int year, boolean male) {
@@ -106,14 +84,11 @@ public class Member implements Serializable {
 
     public void setYear(int year) {
         this.year = year;
+        this.age = Calendar.getInstance().get(Calendar.YEAR) - year;
     }
 
     public int getAge() {
         return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
     }
 
     public boolean isMale() {
@@ -138,5 +113,10 @@ public class Member implements Serializable {
 
     public void setSpouse(Member spouse) {
         this.spouse = spouse;
+    }
+
+    @Override
+    public int compareTo(Member member) {
+        return this.name.compareTo(member.name);
     }
 }

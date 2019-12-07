@@ -13,7 +13,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class ChooseMemberActivity extends AppCompatActivity {
-    ArrayList<Member> list = new ArrayList<Member>();
+    static ArrayList<Member> list = new ArrayList<Member>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

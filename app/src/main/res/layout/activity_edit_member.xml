@@ -6,26 +6,26 @@
     android:layout_height="match_parent"
     android:background="#FFCC99"
     android:backgroundTintMode="screen"
-    tools:context=".AddMemberActivity">
+    tools:context=".EditMemberActivity">
 
     <TextView
-        android:id="@+id/tv_add_member"
+        android:id="@+id/tv_edit_member"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="70dp"
         android:layout_marginBottom="40dp"
-        android:text="ADD MEMBER"
+        android:text="EDIT MEMBER"
         android:textColor="#000000"
         android:textSize="40sp"
         android:textStyle="bold" />
 
     <LinearLayout
-        android:id="@+id/ll_add_name"
+        android:id="@+id/ll_edit_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_add_member"
+        android:layout_below="@+id/tv_edit_member"
         android:layout_marginVertical="10dp"
         android:orientation="horizontal">
 
@@ -40,7 +40,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/et_add_name"
+            android:id="@+id/et_edit_name"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginEnd="20dp"
@@ -50,10 +50,10 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/ll_add_birthday"
+        android:id="@+id/ll_edit_birthday"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/ll_add_name"
+        android:layout_below="@+id/ll_edit_name"
         android:layout_marginVertical="10dp"
         android:orientation="horizontal">
 
@@ -68,22 +68,22 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/et_add_birthday"
+            android:id="@+id/et_edit_birthday"
             android:layout_width="200dp"
             android:layout_height="match_parent" />
 
         <Button
-            android:id="@+id/btn_add_date"
+            android:id="@+id/btn_edit_date"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="Set" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/ll_add_gender"
+        android:id="@+id/ll_edit_gender"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/ll_add_birthday"
+        android:layout_below="@+id/ll_edit_birthday"
         android:layout_marginVertical="10dp"
         android:orientation="horizontal">
 
@@ -98,27 +98,25 @@
             android:textStyle="bold" />
 
         <RadioGroup
-            android:id="@+id/radio_add_gender"
+            android:id="@+id/radio_edit_gender"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
             android:paddingEnd="20dp">
 
             <RadioButton
-                android:id="@+id/radio_add_male"
+                android:id="@+id/radio_edit_male"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:checked="true"
                 android:gravity="center"
                 android:text="Male"
                 android:textColor="#000000" />
 
             <RadioButton
-                android:id="@+id/radio_add_female"
+                android:id="@+id/radio_edit_female"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginStart="30dp"
-                android:checked="false"
                 android:gravity="center"
                 android:text="Female"
                 android:textColor="#000000" />
@@ -126,10 +124,10 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/ll_add_father"
+        android:id="@+id/ll_edit_father"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/ll_add_gender"
+        android:layout_below="@+id/ll_edit_gender"
         android:layout_marginVertical="10dp"
         android:orientation="horizontal">
 
@@ -144,7 +142,7 @@
             android:textStyle="bold" />
 
         <AutoCompleteTextView
-            android:id="@+id/et_add_father"
+            android:id="@+id/et_edit_father"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginEnd="20dp"
@@ -153,15 +151,15 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/ll_add_spouse"
+        android:id="@+id/ll_edit_spouse"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/ll_add_father"
+        android:layout_below="@+id/ll_edit_father"
         android:layout_marginVertical="10dp"
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/tv_add_spouse"
+            android:id="@+id/tv_edit_spouse"
             android:layout_width="100dp"
             android:layout_height="match_parent"
             android:layout_marginStart="20dp"
@@ -172,7 +170,7 @@
             android:textStyle="bold" />
 
         <AutoCompleteTextView
-            android:id="@+id/et_add_spouse"
+            android:id="@+id/et_edit_spouse"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginEnd="20dp"
@@ -183,24 +181,24 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/ll_add_spouse"
+        android:layout_below="@+id/ll_edit_spouse"
         android:layout_marginVertical="30dp"
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btn_add_member"
+            android:id="@+id/btn_edit_member"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
             android:layout_marginEnd="20dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Add"
+            android:text="Edit"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/btn_add_cancel"
+            android:id="@+id/btn_edit_cancel"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"

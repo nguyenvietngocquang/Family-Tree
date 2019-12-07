@@ -9,9 +9,10 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class MainActivity extends AppCompatActivity {
-    ArrayList<Member> list = new ArrayList<Member>();
+    static ArrayList<Member> list = new ArrayList<Member>();
     Member test1 = new Member("Nguyễn Viết Ngọc Quang", 19, 9, 1998, true);
     Member test2 = new Member("Nguyễn Văn Hoan", 9, 4, 1998, true, test1);
     Member test3 = new Member("Trần Mạnh Công", 28, 7, 1998, true, test2);
@@ -52,7 +53,9 @@ public class MainActivity extends AppCompatActivity {
             list.add(test11);
             list.add(test12);
             list.add(test13);
+            list.add(test14);
         }
+        Collections.sort(list);
 
         Button btn_add = (Button) findViewById(R.id.btn_add);
         btn_add.setOnClickListener(new View.OnClickListener() {
