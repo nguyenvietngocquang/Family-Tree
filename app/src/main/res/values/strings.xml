@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Family Tree</string>
+    <string name="facebook">
+        <a href="https://www.facebook.com/nguyenvietngoc.quang">nguyenvietngoc.quang</a>
+    </string>
+    <string name="github">
+        <a href="https://www.github.com/nguyenvietngocquang">nguyenvietngocquang</a>
+    </string>
 </resources>
