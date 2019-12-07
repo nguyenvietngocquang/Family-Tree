@@ -7,16 +7,19 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import java.util.ArrayList;
 
 import de.blox.graphview.BaseGraphAdapter;
 import de.blox.graphview.Graph;
 import de.blox.graphview.GraphView;
-import de.blox.graphview.Node;
 import de.blox.graphview.ViewHolder;
 import de.blox.graphview.tree.BuchheimWalkerAlgorithm;
 import de.blox.graphview.tree.BuchheimWalkerConfiguration;
 
 public class ViewTreeActivity extends AppCompatActivity {
+    ArrayList<Member> list = new ArrayList<Member>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,30 +27,19 @@ public class ViewTreeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_view_tree);
         GraphView graphView = findViewById(R.id.graph);
 
-        // example tree
-        final Graph graph = new Graph();
-        final Node node1 = new Node("Ong");
-        final Node node3 = new Node("Bo");
-        final Node node5 = new Node("Con");
-        final Node node6 = new Node("Bac");
-        final Node node7 = new Node("Chu");
-        final Node node8 = new Node("Anh");
-        final Node node9 = new Node("Em");
+        list = (ArrayList<Member>) getIntent().getSerializableExtra("view_tree");
+        String member = getIntent().getStringExtra("member");
 
-        graph.addEdge(node1, node3);
-        graph.addEdge(node3, node5);
-        graph.addEdge(node1, node6);
-        graph.addEdge(node1, node7);
-        graph.addEdge(node7, node9);
-        graph.addEdge(node3, node8);
+        // Example tree
+        Graph graph = Function.createGraph(member, list);
 
-        // you can set the graph via the constructor or use the adapter.setGraph(Graph) method
-        final BaseGraphAdapter<ViewHolder> adapter = new BaseGraphAdapter<ViewHolder>(graph) {
+        // You can set the graph via the constructor or use the adapter.setGraph(Graph) method
+        BaseGraphAdapter<ViewHolder> adapter = new BaseGraphAdapter<ViewHolder>(graph) {
 
             @NonNull
             @Override
             public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-                final View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.node, parent, false);
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.node, parent, false);
                 return new TreeViewHolder(view);
             }
 
@@ -58,13 +50,22 @@ public class ViewTreeActivity extends AppCompatActivity {
         };
         graphView.setAdapter(adapter);
 
-        // set the algorithm here
-        final BuchheimWalkerConfiguration configuration = new BuchheimWalkerConfiguration.Builder()
+        // Set the algorithm here
+        BuchheimWalkerConfiguration configuration = new BuchheimWalkerConfiguration.Builder()
                 .setSiblingSeparation(100)
                 .setLevelSeparation(300)
                 .setSubtreeSeparation(300)
                 .setOrientation(BuchheimWalkerConfiguration.ORIENTATION_TOP_BOTTOM)
                 .build();
         adapter.setAlgorithm(new BuchheimWalkerAlgorithm(configuration));
+    }
+
+    class TreeViewHolder extends ViewHolder {
+        TextView textView;
+
+        TreeViewHolder(View itemView) {
+            super(itemView);
+            textView = itemView.findViewById(R.id.textView);
+        }
     }
 }

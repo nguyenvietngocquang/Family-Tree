@@ -11,26 +11,18 @@ public class Member implements Serializable {
     private Member father;
     private Member spouse;
 
-    public static String convertName(String name) {
-        if (name.equals(""))
-            return "";
-        name = name.toLowerCase();
-        String[] list = name.split(" ");
-        String result = new String("");
-        for (String temp : list) {
-            temp = temp.substring(0, 1).toUpperCase() + temp.substring(1);
-            result += temp + " ";
-        }
-        return result.trim();
-    }
-
-    public Member(String name) {
-        this.name = name;
+    public Member() {
     }
 
     public Member(String name, boolean male) {
         this.name = name;
         this.male = male;
+    }
+
+    public Member(String name, boolean male, Member father) {
+        this.name = name;
+        this.male = male;
+        this.father = father;
     }
 
     public Member(Member member) {

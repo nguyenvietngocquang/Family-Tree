@@ -32,25 +32,8 @@ public class AddMemberActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_member);
-        Member test1 = new Member("Nguyen Viet Ngoc Quang", true);
-        Member test2 = new Member("Nguyen Quang Anh", true);
-        Member test3 = new Member("Tran Manh Cong", true);
-        Member test4 = new Member("Phung The Hung", true);
-        Member test5 = new Member("Nguyen The Vinh", true);
-        Member test6 = new Member("Dang Ngoc Diep", false);
-        Member test7 = new Member("Tran Thanh Huyen", false);
-        Member test8 = new Member("Phan Thi Thuy", false);
-        Member test9 = new Member("Nguyen Dieu Linh", false);
 
-        list.add(test1);
-        list.add(test2);
-        list.add(test3);
-        list.add(test4);
-        list.add(test5);
-        list.add(test6);
-        list.add(test7);
-        list.add(test8);
-        list.add(test9);
+        list = (ArrayList<Member>) getIntent().getSerializableExtra("add_member");
 
         ArrayList<String> list_male = new ArrayList<String>();
         ArrayList<String> list_female = new ArrayList<String>();
@@ -59,9 +42,6 @@ public class AddMemberActivity extends AppCompatActivity {
                 list_male.add(member.getName());
             else list_female.add(member.getName());
         }
-
-//        Intent intent = this.getIntent();
-//        list = (ArrayList<Member>) getIntent().getSerializableExtra("list_member");
 
         // Input Name
         EditText et_add_name = (EditText) findViewById(R.id.et_add_name);
@@ -103,19 +83,22 @@ public class AddMemberActivity extends AppCompatActivity {
         radio_add_gender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                int checked = group.getCheckedRadioButtonId();
-                if (checked == R.id.radio_add_male) {
-                    male = true;
-                    tv_add_spouse.setText("Wife");
-                    et_add_spouse.setText(null);
-                    ArrayAdapter<String> adapter_spouse = new ArrayAdapter<String>(AddMemberActivity.this, android.R.layout.simple_dropdown_item_1line, list_female);
-                    et_add_spouse.setAdapter(adapter_spouse);
-                } else if (checkedId == R.id.radio_add_female) {
-                    male = false;
-                    tv_add_spouse.setText("Husband");
-                    et_add_spouse.setText(null);
-                    ArrayAdapter<String> adapter_spouse = new ArrayAdapter<String>(AddMemberActivity.this, android.R.layout.simple_dropdown_item_1line, list_male);
-                    et_add_spouse.setAdapter(adapter_spouse);
+                ArrayAdapter<String> adapter_spouse;
+                switch (checkedId) {
+                    case R.id.radio_add_male:
+                        male = true;
+                        tv_add_spouse.setText("Wife");
+                        et_add_spouse.setText(null);
+                        adapter_spouse = new ArrayAdapter<String>(AddMemberActivity.this, android.R.layout.simple_dropdown_item_1line, list_female);
+                        et_add_spouse.setAdapter(adapter_spouse);
+                        break;
+                    case R.id.radio_add_female:
+                        male = false;
+                        tv_add_spouse.setText("Husband");
+                        et_add_spouse.setText(null);
+                        adapter_spouse = new ArrayAdapter<String>(AddMemberActivity.this, android.R.layout.simple_dropdown_item_1line, list_male);
+                        et_add_spouse.setAdapter(adapter_spouse);
+                        break;
                 }
             }
         });
@@ -131,9 +114,9 @@ public class AddMemberActivity extends AppCompatActivity {
         btn_add_member.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                name = Member.convertName(et_add_name.getText().toString().trim());
-                father_name = Member.convertName(et_add_father.getText().toString().trim());
-                spouse_name = Member.convertName(et_add_spouse.getText().toString().trim());
+                name = Function.convertName(et_add_name.getText().toString().trim());
+                father_name = Function.convertName(et_add_father.getText().toString().trim());
+                spouse_name = Function.convertName(et_add_spouse.getText().toString().trim());
 
                 if (name.equals("")) {
                     Toast.makeText(AddMemberActivity.this, "You need to input name!", Toast.LENGTH_LONG).show();
@@ -174,7 +157,7 @@ public class AddMemberActivity extends AppCompatActivity {
                     list.add(member);
 
                     Intent intent = new Intent(AddMemberActivity.this, MainActivity.class);
-                    intent.putExtra("list_member", list);
+                    intent.putExtra("add_member", list);
                     startActivity(intent);
                     finish();
                 }
@@ -182,8 +165,8 @@ public class AddMemberActivity extends AppCompatActivity {
         });
 
         // Button Cancel
-        Button btn_cancel_add = (Button) findViewById(R.id.btn_cancel_add);
-        btn_cancel_add.setOnClickListener(new View.OnClickListener() {
+        Button btn_add_cancel = (Button) findViewById(R.id.btn_add_cancel);
+        btn_add_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();

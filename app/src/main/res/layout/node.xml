@@ -8,7 +8,7 @@
     android:layout_gravity="center"
     android:layout_margin="5dp"
     card_view:cardBackgroundColor="@android:color/holo_blue_dark"
-    card_view:cardElevation="16dp"
+    card_view:cardElevation="15dp"
     card_view:contentPadding="10dp">
 
     <LinearLayout
@@ -21,6 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@android:color/white"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
     </LinearLayout>

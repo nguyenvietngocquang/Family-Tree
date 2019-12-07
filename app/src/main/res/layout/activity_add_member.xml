@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E3E4FA"
+    android:background="#FFCC99"
     android:backgroundTintMode="screen"
     tools:context=".AddMemberActivity">
 
@@ -14,8 +14,8 @@
         android:layout_height="50dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginBottom="40dp"
         android:text="ADD MEMBER"
         android:textColor="#000000"
         android:textSize="40sp"
@@ -195,7 +195,7 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/btn_cancel_add"
+            android:id="@+id/btn_add_cancel"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
