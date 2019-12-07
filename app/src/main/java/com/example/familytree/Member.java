@@ -42,27 +42,27 @@ public class Member implements Serializable {
         this.month = month;
         this.year = year;
         this.male = male;
-        this.age = Calendar.getInstance().get(Calendar.YEAR) - this.year;
+        this.age = Calendar.getInstance().get(Calendar.YEAR) - year;
     }
 
-    public Member(Member father, String name, int day, int month, int year, boolean male) {
-        this.name = name;
-        this.day = day;
-        this.month = month;
-        this.year = year;
-        this.male = male;
-        this.father = father;
-        this.age = Calendar.getInstance().get(Calendar.YEAR) - this.year;
-    }
-
-    public Member(String name, int day, int month, int year, boolean male, Member spouse) {
+    public Member(Member spouse, String name, int day, int month, int year, boolean male) {
         this.name = name;
         this.day = day;
         this.month = month;
         this.year = year;
         this.male = male;
         this.spouse = spouse;
-        this.age = Calendar.getInstance().get(Calendar.YEAR) - this.year;
+        this.age = Calendar.getInstance().get(Calendar.YEAR) - year;
+    }
+
+    public Member(String name, int day, int month, int year, boolean male, Member father) {
+        this.name = name;
+        this.day = day;
+        this.month = month;
+        this.year = year;
+        this.male = male;
+        this.father = father;
+        this.age = Calendar.getInstance().get(Calendar.YEAR) - year;
     }
 
     public Member(String name, int day, int month, int year, boolean male, Member father, Member spouse) {
@@ -73,7 +73,7 @@ public class Member implements Serializable {
         this.male = male;
         this.father = father;
         this.spouse = spouse;
-        this.age = Calendar.getInstance().get(Calendar.YEAR) - this.year;
+        this.age = Calendar.getInstance().get(Calendar.YEAR) - year;
     }
 
     public String getName() {
@@ -106,6 +106,10 @@ public class Member implements Serializable {
 
     public void setYear(int year) {
         this.year = year;
+    }
+
+    public int getAge() {
+        return age;
     }
 
     public void setAge(int age) {

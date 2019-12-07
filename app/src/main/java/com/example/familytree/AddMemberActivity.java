@@ -75,7 +75,8 @@ public class AddMemberActivity extends AppCompatActivity {
         // Select Spouse
         AutoCompleteTextView et_add_spouse = (AutoCompleteTextView) findViewById(R.id.et_add_spouse);
         TextView tv_add_spouse = (TextView) findViewById(R.id.tv_add_spouse);
-        ArrayAdapter<String> adapter_spouse = new ArrayAdapter<String>(AddMemberActivity.this, android.R.layout.simple_dropdown_item_1line, list_female);
+        ArrayAdapter<String> adapter_spouse = new ArrayAdapter<String>(AddMemberActivity.this,
+                android.R.layout.simple_dropdown_item_1line, list_female);
         et_add_spouse.setAdapter(adapter_spouse);
 
         // Select Gender && Spouse
@@ -89,14 +90,16 @@ public class AddMemberActivity extends AppCompatActivity {
                         male = true;
                         tv_add_spouse.setText("Wife");
                         et_add_spouse.setText(null);
-                        adapter_spouse = new ArrayAdapter<String>(AddMemberActivity.this, android.R.layout.simple_dropdown_item_1line, list_female);
+                        adapter_spouse = new ArrayAdapter<String>(AddMemberActivity.this,
+                                android.R.layout.simple_dropdown_item_1line, list_female);
                         et_add_spouse.setAdapter(adapter_spouse);
                         break;
                     case R.id.radio_add_female:
                         male = false;
                         tv_add_spouse.setText("Husband");
                         et_add_spouse.setText(null);
-                        adapter_spouse = new ArrayAdapter<String>(AddMemberActivity.this, android.R.layout.simple_dropdown_item_1line, list_male);
+                        adapter_spouse = new ArrayAdapter<String>(AddMemberActivity.this,
+                                android.R.layout.simple_dropdown_item_1line, list_male);
                         et_add_spouse.setAdapter(adapter_spouse);
                         break;
                 }
@@ -105,7 +108,7 @@ public class AddMemberActivity extends AppCompatActivity {
 
         // Select Father
         AutoCompleteTextView et_add_father = (AutoCompleteTextView) findViewById(R.id.et_add_father);
-        ArrayAdapter<String> adapter_father = new ArrayAdapter<String>(this,
+        ArrayAdapter<String> adapter_father = new ArrayAdapter<String>(AddMemberActivity.this,
                 android.R.layout.simple_dropdown_item_1line, list_male);
         et_add_father.setAdapter(adapter_father);
 
@@ -120,6 +123,8 @@ public class AddMemberActivity extends AppCompatActivity {
 
                 if (name.equals("")) {
                     Toast.makeText(AddMemberActivity.this, "You need to input name!", Toast.LENGTH_LONG).show();
+                } else if (Function.contains(name, list)) {
+                    Toast.makeText(AddMemberActivity.this, "This member already exists!", Toast.LENGTH_LONG).show();
                 } else if (!father_name.equals("") && father_name.equals(spouse_name)) {
                     Toast.makeText(AddMemberActivity.this, "Father's name can't be the same as spouse's name!", Toast.LENGTH_LONG).show();
                 } else {
@@ -146,10 +151,10 @@ public class AddMemberActivity extends AppCompatActivity {
                         Toast.makeText(AddMemberActivity.this, name, Toast.LENGTH_SHORT).show();
                         member = new Member(name, tDay, tMonth, tYear, male);
                     } else if (father_name.equals("")) {
-                        member = new Member(name, tDay, tMonth, tYear, male, spouse);
+                        member = new Member(spouse, name, tDay, tMonth, tYear, male);
                         spouse.setSpouse(member);
                     } else if (spouse_name.equals("")) {
-                        member = new Member(father, name, tDay, tMonth, tYear, male);
+                        member = new Member(name, tDay, tMonth, tYear, male, father);
                     } else {
                         member = new Member(name, tDay, tMonth, tYear, male, father, spouse);
                         spouse.setSpouse(member);

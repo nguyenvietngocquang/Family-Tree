@@ -13,12 +13,13 @@ public class Function {
         Node[] node = new Node[list.size()];
         int start = 1, end = 1, check = -1;
 
-        node[0] = new Node(name);
-        Member tempMember = findMember(node[0].getData().toString(), list);
+        Member tempMember = findMember(name, list);
+        node[0] = new Node(tempMember);
         for (Member member : list) {
             if (member.isMale()) {
-                if ((member.getFather() != null && tempMember.getName().equals(member.getFather().getName())) || (tempMember.getFather() != null && member.getName().equals(tempMember.getFather().getName()))) {
-                    Node resultNode = new Node(member.getName());
+                if ((member.getFather() != null && tempMember.getName().equals(member.getFather().getName()))
+                        || (tempMember.getFather() != null && member.getName().equals(tempMember.getFather().getName()))) {
+                    Node resultNode = new Node(member);
                     if (!contains(resultNode, node)) {
                         node[end] = resultNode;
                         end++;
@@ -32,11 +33,12 @@ public class Function {
             int S = start;
             int E = end;
             for (int i = S; i < E; i++) {
-                tempMember = findMember(node[i].getData().toString(), list);
+                tempMember = findMember(((Member) node[i].getData()).getName(), list);
                 for (Member member : list) {
                     if (member.isMale()) {
-                        if ((member.getFather() != null && tempMember.getName().equals(member.getFather().getName())) || (tempMember.getFather() != null && member.getName().equals(tempMember.getFather().getName()))) {
-                            Node resultNode = new Node(member.getName());
+                        if ((member.getFather() != null && tempMember.getName().equals(member.getFather().getName()))
+                                || (tempMember.getFather() != null && member.getName().equals(tempMember.getFather().getName()))) {
+                            Node resultNode = new Node(member);
                             if (!contains(resultNode, node)) {
                                 node[end] = resultNode;
                                 end++;
@@ -51,7 +53,7 @@ public class Function {
 
         Member root = new Member();
         for (int i = 0; i < end; i++) {
-            root = findMember(node[i].getData().toString(), list);
+            root = findMember(((Member) node[i].getData()).getName(), list);
             if (root.getFather() != null && root.getFather().getFather() == null) {
                 graph.addEdge(findNode(root.getFather().getName(), node), node[i]);
                 break;
@@ -59,7 +61,7 @@ public class Function {
         }
 
         for (int i = 0; i < end; i++) {
-            tempMember = findMember(node[i].getData().toString(), list);
+            tempMember = findMember(((Member) node[i].getData()).getName(), list);
             if (!tempMember.equals(root) && tempMember.getFather() != null) {
                 graph.addEdge(findNode(tempMember.getFather().getName(), node), node[i]);
             }
@@ -68,12 +70,21 @@ public class Function {
         return graph;
     }
 
+    // Kiểm tra có tồn tại Member trong List không?
+    public static boolean contains(String name, ArrayList<Member> list) {
+        for (Member member : list) {
+            if (member.getName().equals(name))
+                return true;
+        }
+        return false;
+    }
+
     // Kiểm tra có tồn tại Node trong Array không?
     public static boolean contains(Node nodeTemp, Node[] node) {
         for (Node tempNode : node) {
-            if (tempNode == null || tempNode.getData().toString().equals(""))
+            if (tempNode == null || tempNode.getData() == null)
                 return false;
-            else if (tempNode.getData().toString().equals(nodeTemp.getData().toString()))
+            else if (tempNode.getData().equals(nodeTemp.getData()))
                 return true;
         }
         return false;
@@ -82,9 +93,9 @@ public class Function {
     // Tìm Node trong Array theo tên
     public static Node findNode(String name, Node[] node) {
         for (Node tempNode : node) {
-            if (tempNode == null || tempNode.getData().toString().equals(""))
+            if (tempNode == null || tempNode.getData() == null)
                 return null;
-            if (tempNode.getData().toString().equals(name))
+            if (((Member) tempNode.getData()).getName().equals(name))
                 return tempNode;
         }
         return null;

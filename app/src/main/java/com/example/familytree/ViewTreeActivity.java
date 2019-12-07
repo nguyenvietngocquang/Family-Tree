@@ -45,7 +45,8 @@ public class ViewTreeActivity extends AppCompatActivity {
 
             @Override
             public void onBindViewHolder(ViewHolder viewHolder, Object data, int position) {
-                ((TreeViewHolder) viewHolder).textView.setText(data.toString());
+                ((TreeViewHolder) viewHolder).tv_node_name.setText(((Member) data).getName());
+                ((TreeViewHolder) viewHolder).tv_node_age.setText(String.valueOf(((Member) data).getAge()) + " years old");
             }
         };
         graphView.setAdapter(adapter);
@@ -61,11 +62,12 @@ public class ViewTreeActivity extends AppCompatActivity {
     }
 
     class TreeViewHolder extends ViewHolder {
-        TextView textView;
+        TextView tv_node_name, tv_node_age;
 
         TreeViewHolder(View itemView) {
             super(itemView);
-            textView = itemView.findViewById(R.id.textView);
+            tv_node_name = itemView.findViewById(R.id.tv_node_name);
+            tv_node_age = itemView.findViewById(R.id.tv_node_age);
         }
     }
 }
