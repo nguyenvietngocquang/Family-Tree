@@ -1,4 +1,6 @@
-package com.example.familytree;
+package com.example.familytree.member;
+
+import com.example.familytree.member.Member;
 
 import java.util.ArrayList;
 

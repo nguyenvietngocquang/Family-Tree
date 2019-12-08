@@ -8,6 +8,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.familytree.about.AboutActivity;
+import com.example.familytree.add_member.AddMemberActivity;
+import com.example.familytree.list_member.ListMemberActivity;
+import com.example.familytree.member.Member;
+import com.example.familytree.view_tree.ChooseMemberActivity;
+
 import java.util.ArrayList;
 import java.util.Collections;
 

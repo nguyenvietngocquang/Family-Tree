@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#FFCC99"
     android:backgroundTintMode="screen"
-    tools:context=".AddMemberActivity">
+    tools:context=".add_member.AddMemberActivity">
 
     <TextView
         android:id="@+id/tv_add_member"
@@ -101,8 +101,7 @@
             android:id="@+id/radio_add_gender"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:paddingEnd="20dp">
+            android:orientation="horizontal">
 
             <RadioButton
                 android:id="@+id/radio_add_male"

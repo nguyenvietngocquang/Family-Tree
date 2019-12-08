@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#FFCC99"
     android:backgroundTintMode="screen"
-    tools:context=".EditMemberActivity">
+    tools:context=".list_member.EditMemberActivity">
 
     <TextView
         android:id="@+id/tv_edit_member"
@@ -101,8 +101,7 @@
             android:id="@+id/radio_edit_gender"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:paddingEnd="20dp">
+            android:orientation="horizontal">
 
             <RadioButton
                 android:id="@+id/radio_edit_male"

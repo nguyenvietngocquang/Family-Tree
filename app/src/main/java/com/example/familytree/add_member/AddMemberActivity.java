@@ -1,4 +1,4 @@
-package com.example.familytree;
+package com.example.familytree.add_member;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,6 +14,11 @@ import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.familytree.member.Function;
+import com.example.familytree.MainActivity;
+import com.example.familytree.member.Member;
+import com.example.familytree.R;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -49,11 +54,11 @@ public class AddMemberActivity extends AppCompatActivity {
         // Input Birthday
         calendar = Calendar.getInstance();
         tYear = calendar.get(Calendar.YEAR);
-        tMonth = calendar.get(Calendar.MONTH);
+        tMonth = calendar.get(Calendar.MONTH) + 1;
         tDay = calendar.get(Calendar.DAY_OF_MONTH);
 
         EditText et_add_birthday = (EditText) findViewById(R.id.et_add_birthday);
-        et_add_birthday.setText(tDay + " / " + (tMonth + 1) + " / " + tYear);
+        et_add_birthday.setText(tDay + " / " + tMonth + " / " + tYear);
         Button btn_add_date = (Button) findViewById(R.id.btn_add_date);
 
         btn_add_date.setOnClickListener(new View.OnClickListener() {

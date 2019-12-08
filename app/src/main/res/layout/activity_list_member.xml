@@ -6,13 +6,13 @@
     android:layout_height="match_parent"
     android:background="@drawable/background"
     android:orientation="vertical"
-    tools:context=".ListMemberActivity">
+    tools:context=".list_member.ListMemberActivity">
 
     <RelativeLayout
         android:id="@+id/rl_top"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginVertical="10dp">
+        android:layout_marginTop="10dp">
 
         <ImageButton
             android:id="@+id/btn_list_cancel"
@@ -31,11 +31,59 @@
             android:background="#CACACA" />
     </RelativeLayout>
 
+    <RadioGroup
+        android:id="@+id/radio_change_gender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_top"
+        android:layout_margin="10dp"
+        android:background="#0066FF"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radio_change_all"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="20dp"
+            android:checked="true"
+            android:gravity="center"
+            android:text="All"
+            android:textColor="#FFCC00"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/radio_change_male"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="20dp"
+            android:checked="false"
+            android:gravity="center"
+            android:text="Male"
+            android:textColor="#FFCC00"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/radio_change_female"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="20dp"
+            android:checked="false"
+            android:gravity="center"
+            android:text="Female"
+            android:textColor="#FFCC00"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </RadioGroup>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/rl_top">
+        android:layout_below="@+id/radio_change_gender">
 
     </androidx.recyclerview.widget.RecyclerView>
 

@@ -1,4 +1,4 @@
-package com.example.familytree;
+package com.example.familytree.view_tree;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +9,10 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.Toast;
+
+import com.example.familytree.R;
+import com.example.familytree.member.Function;
+import com.example.familytree.member.Member;
 
 import java.util.ArrayList;
 

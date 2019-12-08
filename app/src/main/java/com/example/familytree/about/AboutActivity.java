@@ -1,4 +1,4 @@
-package com.example.familytree;
+package com.example.familytree.about;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,8 @@ import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.example.familytree.R;
 
 public class AboutActivity extends AppCompatActivity {
 

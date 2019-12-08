@@ -1,4 +1,4 @@
-package com.example.familytree;
+package com.example.familytree.list_member;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,6 +16,10 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.familytree.R;
+import com.example.familytree.member.Function;
+import com.example.familytree.member.Member;
+
 import java.util.ArrayList;
 
 public class EditMemberActivity extends AppCompatActivity {
@@ -32,9 +36,10 @@ public class EditMemberActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_member);
 
-        int position = getIntent().getExtras().getInt("position");
+        name = getIntent().getExtras().getString("name");
         list = (ArrayList<Member>) getIntent().getSerializableExtra("list_member");
 
+        Member edit_member = Function.findMember(name, list);
         ArrayList<String> list_male = new ArrayList<String>();
         ArrayList<String> list_female = new ArrayList<String>();
         for (Member member : list) {
@@ -42,8 +47,6 @@ public class EditMemberActivity extends AppCompatActivity {
                 list_male.add(member.getName());
             else list_female.add(member.getName());
         }
-
-        Member edit_member = list.get(position);
         // Edit Name
         EditText et_edit_name = (EditText) findViewById(R.id.et_edit_name);
         et_edit_name.setText(edit_member.getName());
@@ -180,15 +183,25 @@ public class EditMemberActivity extends AppCompatActivity {
 
                     if (edit_member.getSpouse() == null) {
                         if (!spouse_name.equals("")) {
+                            if (spouse.getSpouse() != null) {
+                                Member temp = Function.findMember(spouse.getSpouse().getName(), list);
+                                temp.setSpouse(null);
+                            }
                             edit_member.setSpouse(spouse);
                             spouse.setSpouse(edit_member);
                         }
                     } else {
                         if (spouse_name.equals("")) {
-                            edit_member.getSpouse().setSpouse(null);
+                            Member temp = Function.findMember(edit_member.getSpouse().getName(), list);
+                            temp.setSpouse(null);
                             edit_member.setSpouse(null);
                         } else if (!edit_member.getSpouse().getName().equals(spouse_name)) {
-                            edit_member.getSpouse().setSpouse(null);
+                            Member temp = Function.findMember(edit_member.getSpouse().getName(), list);
+                            temp.setSpouse(null);
+                            if (spouse.getSpouse() != null) {
+                                temp = Function.findMember(spouse.getSpouse().getName(), list);
+                                temp.setSpouse(null);
+                            }
                             edit_member.setSpouse(spouse);
                             spouse.setSpouse(edit_member);
                         }

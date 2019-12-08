@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#FFCC99"
     android:backgroundTintMode="screen"
-    tools:context=".ChooseMemberActivity">
+    tools:context=".view_tree.ChooseMemberActivity">
 
     <TextView
         android:id="@+id/tv_choose"

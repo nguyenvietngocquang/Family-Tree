@@ -1,4 +1,4 @@
-package com.example.familytree;
+package com.example.familytree.view_tree;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,6 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.example.familytree.R;
+import com.example.familytree.member.Function;
+import com.example.familytree.member.Member;
 
 import java.util.ArrayList;
 
