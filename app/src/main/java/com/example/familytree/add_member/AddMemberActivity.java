@@ -57,20 +57,26 @@ public class AddMemberActivity extends AppCompatActivity {
         tMonth = calendar.get(Calendar.MONTH) + 1;
         tDay = calendar.get(Calendar.DAY_OF_MONTH);
 
-        EditText et_add_birthday = (EditText) findViewById(R.id.et_add_birthday);
-        et_add_birthday.setText(tDay + " / " + tMonth + " / " + tYear);
-        Button btn_add_date = (Button) findViewById(R.id.btn_add_date);
+        EditText et_add_day = (EditText) findViewById(R.id.et_add_day);
+        EditText et_add_month = (EditText) findViewById(R.id.et_add_month);
+        EditText et_add_year = (EditText) findViewById(R.id.et_add_year);
+        et_add_day.setText(String.valueOf(tDay));
+        et_add_month.setText(String.valueOf(tMonth));
+        et_add_year.setText(String.valueOf(tYear));
 
-        btn_add_date.setOnClickListener(new View.OnClickListener() {
+        Button btn_add_set = (Button) findViewById(R.id.btn_add_set);
+        btn_add_set.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DatePickerDialog datePickerDialog = new DatePickerDialog(AddMemberActivity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        et_add_birthday.setText(dayOfMonth + " / " + (month + 1) + " / " + year);
-                        tYear = year;
-                        tMonth = month + 1;
                         tDay = dayOfMonth;
+                        tMonth = month + 1;
+                        tYear = year;
+                        et_add_day.setText(String.valueOf(tDay));
+                        et_add_month.setText(String.valueOf(tMonth));
+                        et_add_year.setText(String.valueOf(tYear));
                     }
                 }, tYear, tMonth - 1, tDay);
                 datePickerDialog.show();
@@ -125,27 +131,43 @@ public class AddMemberActivity extends AppCompatActivity {
                 name = Function.convertName(et_add_name.getText().toString().trim());
                 father_name = Function.convertName(et_add_father.getText().toString().trim());
                 spouse_name = Function.convertName(et_add_spouse.getText().toString().trim());
+                String day = et_add_day.getText().toString().trim();
+                String month = et_add_month.getText().toString().trim();
+                String year = et_add_year.getText().toString().trim();
 
                 if (name.equals("")) {
                     Toast.makeText(AddMemberActivity.this, "You need to input name!", Toast.LENGTH_LONG).show();
                 } else if (Function.contains(name, list)) {
                     Toast.makeText(AddMemberActivity.this, "This member already exists!", Toast.LENGTH_LONG).show();
+                } else if (day.equals("") || month.equals("") || year.equals("")) {
+                    Toast.makeText(AddMemberActivity.this, "You need to input birthday!", Toast.LENGTH_LONG).show();
                 } else if (!father_name.equals("") && father_name.equals(spouse_name)) {
                     Toast.makeText(AddMemberActivity.this, "Father's name can't be the same as spouse's name!", Toast.LENGTH_LONG).show();
                 } else {
                     father = Function.findMember(father_name, list);
                     spouse = Function.findMember(spouse_name, list);
+                    tDay = Integer.valueOf(day);
+                    tMonth = Integer.valueOf(month);
+                    tYear = Integer.valueOf(year);
 
                     Member member;
                     if (father_name.equals("") && spouse_name.equals("")) {
                         member = new Member(name, tDay, tMonth, tYear, male);
                     } else if (father_name.equals("")) {
                         member = new Member(spouse, name, tDay, tMonth, tYear, male);
+                        if (spouse.getSpouse() != null) {
+                            Member temp = Function.findMember(spouse.getSpouse().getName(), list);
+                            temp.setSpouse(null);
+                        }
                         spouse.setSpouse(member);
                     } else if (spouse_name.equals("")) {
                         member = new Member(name, tDay, tMonth, tYear, male, father);
                     } else {
                         member = new Member(name, tDay, tMonth, tYear, male, father, spouse);
+                        if (spouse.getSpouse() != null) {
+                            Member temp = Function.findMember(spouse.getSpouse().getName(), list);
+                            temp.setSpouse(null);
+                        }
                         spouse.setSpouse(member);
                     }
                     list.add(member);

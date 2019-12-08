@@ -11,28 +11,16 @@ import android.widget.Toast;
 import com.example.familytree.about.AboutActivity;
 import com.example.familytree.add_member.AddMemberActivity;
 import com.example.familytree.list_member.ListMemberActivity;
+import com.example.familytree.member.Function;
 import com.example.familytree.member.Member;
 import com.example.familytree.view_tree.ChooseMemberActivity;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 
 public class MainActivity extends AppCompatActivity {
     static ArrayList<Member> list = new ArrayList<Member>();
-    Member test1 = new Member("Nguyễn Viết Ngọc Quang", 19, 9, 1998, true);
-    Member test2 = new Member("Nguyễn Văn Hoan", 9, 4, 1998, true, test1);
-    Member test3 = new Member("Trần Mạnh Công", 28, 7, 1998, true, test2);
-    Member test4 = new Member("Phùng Thế Hùng", 18, 6, 1998, true, test1);
-    Member test5 = new Member("Nguyễn Thế Vinh", 26, 12, 1998, true, test2);
-    Member test6 = new Member("Đặng Ngọc Diệp", 12, 2, 1998, false);
-    Member test7 = new Member("Trần Thanh Huyền", 6, 12, 1998, false);
-    Member test8 = new Member("Phan Thị Thùy", 19, 8, 1998, false);
-    Member test9 = new Member("Nguyễn Diệu Linh", 3, 7, 1998, false);
-    Member test10 = new Member("Nguyễn Quang Anh", 23, 10, 1998, true, test5);
-    Member test11 = new Member("Dương Hải Nguyên", 26, 12, 1998, true, test1);
-    Member test12 = new Member("Bùi Đình Khánh Duy", 25, 6, 1998, true, test11);
-    Member test13 = new Member("Nguyễn Đức Anh", 26, 8, 1998, true, test10);
-    Member test14 = new Member("Phan Quốc Toản", 25, 11, 1998, true, test5);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,20 +34,7 @@ public class MainActivity extends AppCompatActivity {
         } else if (intent.hasExtra("list_member")) {
             list = (ArrayList<Member>) getIntent().getSerializableExtra("list_member");
         } else {
-            list.add(test1);
-            list.add(test2);
-            list.add(test3);
-            list.add(test4);
-            list.add(test5);
-            list.add(test6);
-            list.add(test7);
-            list.add(test8);
-            list.add(test9);
-            list.add(test10);
-            list.add(test11);
-            list.add(test12);
-            list.add(test13);
-            list.add(test14);
+            list = Function.getData(this);
         }
         Collections.sort(list);
 
@@ -102,4 +77,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        try {
+            Function.saveData(this, list);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

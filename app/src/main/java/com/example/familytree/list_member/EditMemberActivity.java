@@ -56,20 +56,26 @@ public class EditMemberActivity extends AppCompatActivity {
         tMonth = edit_member.getMonth();
         tDay = edit_member.getDay();
 
-        EditText et_edit_birthday = (EditText) findViewById(R.id.et_edit_birthday);
-        et_edit_birthday.setText(tDay + " / " + tMonth + " / " + tYear);
-        Button btn_edit_date = (Button) findViewById(R.id.btn_edit_date);
+        EditText et_edit_day = (EditText) findViewById(R.id.et_edit_day);
+        EditText et_edit_month = (EditText) findViewById(R.id.et_edit_month);
+        EditText et_edit_year = (EditText) findViewById(R.id.et_edit_year);
+        et_edit_day.setText(String.valueOf(tDay));
+        et_edit_month.setText(String.valueOf(tMonth));
+        et_edit_year.setText(String.valueOf(tYear));
 
-        btn_edit_date.setOnClickListener(new View.OnClickListener() {
+        Button btn_edit_set = (Button) findViewById(R.id.btn_edit_set);
+        btn_edit_set.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DatePickerDialog datePickerDialog = new DatePickerDialog(EditMemberActivity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        et_edit_birthday.setText(dayOfMonth + " / " + (month + 1) + " / " + year);
-                        tYear = year;
-                        tMonth = month + 1;
                         tDay = dayOfMonth;
+                        tMonth = month + 1;
+                        tYear = year;
+                        et_edit_day.setText(String.valueOf(tDay));
+                        et_edit_month.setText(String.valueOf(tMonth));
+                        et_edit_year.setText(String.valueOf(tYear));
                     }
                 }, tYear, tMonth - 1, tDay);
                 datePickerDialog.show();
@@ -147,9 +153,14 @@ public class EditMemberActivity extends AppCompatActivity {
                 name = Function.convertName(et_edit_name.getText().toString().trim());
                 father_name = Function.convertName(et_edit_father.getText().toString().trim());
                 spouse_name = Function.convertName(et_edit_spouse.getText().toString().trim());
+                String day = et_edit_day.getText().toString().trim();
+                String month = et_edit_month.getText().toString().trim();
+                String year = et_edit_year.getText().toString().trim();
 
                 if (name.equals("")) {
                     Toast.makeText(EditMemberActivity.this, "You need to input name!", Toast.LENGTH_LONG).show();
+                } else if (day.equals("") || month.equals("") || year.equals("")) {
+                    Toast.makeText(EditMemberActivity.this, "You need to input birthday!", Toast.LENGTH_LONG).show();
                 } else if (!father_name.equals("") && father_name.equals(name)) {
                     Toast.makeText(EditMemberActivity.this, "Father's name can't be the same as member's name!", Toast.LENGTH_LONG).show();
                 } else if (!father_name.equals("") && father_name.equals(spouse_name)) {
@@ -159,6 +170,9 @@ public class EditMemberActivity extends AppCompatActivity {
                 } else {
                     father = Function.findMember(father_name, list);
                     spouse = Function.findMember(spouse_name, list);
+                    tDay = Integer.valueOf(day);
+                    tMonth = Integer.valueOf(month);
+                    tYear = Integer.valueOf(year);
 
                     if (!edit_member.getName().equals(name))
                         edit_member.setName(name);

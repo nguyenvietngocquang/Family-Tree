@@ -14,8 +14,10 @@ import android.widget.Toast;
 
 import com.example.familytree.MainActivity;
 import com.example.familytree.R;
+import com.example.familytree.member.Function;
 import com.example.familytree.member.Member;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -82,6 +84,16 @@ public class ListMemberActivity extends AppCompatActivity implements SearchView.
                 finish();
             }
         });
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        try {
+            Function.saveData(this, list);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

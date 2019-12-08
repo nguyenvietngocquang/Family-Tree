@@ -1,13 +1,38 @@
 package com.example.familytree.member;
 
-import com.example.familytree.member.Member;
+import android.content.Context;
+import android.content.SharedPreferences;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import de.blox.graphview.Graph;
 import de.blox.graphview.Node;
 
 public class Function {
+
+    public static void saveData(Context context, ArrayList<Member> list) throws IOException {
+        SharedPreferences prefs = context.getSharedPreferences("TAG_LIST", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        try {
+            editor.putString("list", ObjectSerializer.serialize(list));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        editor.commit();
+    }
+
+    public static ArrayList<Member> getData(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences("TAG_LIST", Context.MODE_PRIVATE);
+        try {
+            return (ArrayList<Member>) ObjectSerializer.deserialize(prefs.getString("list", ObjectSerializer.serialize(new ArrayList<Member>())));
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
     // Tạo Graph với các Node có quan hệ cha - con
     public static Graph createGraph(String name, ArrayList<Member> list) {
