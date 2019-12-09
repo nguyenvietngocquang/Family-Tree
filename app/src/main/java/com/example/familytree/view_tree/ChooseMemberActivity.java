@@ -26,15 +26,14 @@ public class ChooseMemberActivity extends AppCompatActivity {
 
         list = (ArrayList<Member>) getIntent().getSerializableExtra("view_tree");
 
-        ArrayList<String> list_male = new ArrayList<String>();
+        ArrayList<String> list_name = new ArrayList<String>();
         for (Member member : list) {
-            if (member.isMale())
-                list_male.add(member.getName());
+            list_name.add(member.getName());
         }
 
         AutoCompleteTextView et_choose = (AutoCompleteTextView) findViewById(R.id.et_choose);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_dropdown_item_1line, list_male);
+                android.R.layout.simple_dropdown_item_1line, list_name);
         et_choose.setAdapter(adapter);
 
         // Button Apply

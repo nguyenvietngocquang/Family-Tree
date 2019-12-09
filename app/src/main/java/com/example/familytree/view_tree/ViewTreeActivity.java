@@ -2,7 +2,9 @@ package com.example.familytree.view_tree;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -49,6 +51,8 @@ public class ViewTreeActivity extends AppCompatActivity {
 
             @Override
             public void onBindViewHolder(ViewHolder viewHolder, Object data, int position) {
+                if (!((Member) data).isMale())
+                    ((TreeViewHolder) viewHolder).cv_node.setCardBackgroundColor(Color.parseColor("#CC0000"));
                 ((TreeViewHolder) viewHolder).tv_node_name.setText(((Member) data).getName());
                 ((TreeViewHolder) viewHolder).tv_node_age.setText(String.valueOf(((Member) data).getAge()) + " years old");
             }
@@ -66,10 +70,12 @@ public class ViewTreeActivity extends AppCompatActivity {
     }
 
     class TreeViewHolder extends ViewHolder {
+        CardView cv_node;
         TextView tv_node_name, tv_node_age;
 
         TreeViewHolder(View itemView) {
             super(itemView);
+            cv_node = itemView.findViewById(R.id.cv_node);
             tv_node_name = itemView.findViewById(R.id.tv_node_name);
             tv_node_age = itemView.findViewById(R.id.tv_node_age);
         }

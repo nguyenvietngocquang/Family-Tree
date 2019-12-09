@@ -43,14 +43,12 @@ public class Function {
         Member tempMember = findMember(name, list);
         node[0] = new Node(tempMember);
         for (Member member : list) {
-            if (member.isMale()) {
-                if ((member.getFather() != null && tempMember.getName().equals(member.getFather().getName()))
-                        || (tempMember.getFather() != null && member.getName().equals(tempMember.getFather().getName()))) {
-                    Node resultNode = new Node(member);
-                    if (!contains(resultNode, node)) {
-                        node[end] = resultNode;
-                        end++;
-                    }
+            if ((member.getFather() != null && tempMember.getName().equals(member.getFather().getName()))
+                    || (tempMember.getFather() != null && member.getName().equals(tempMember.getFather().getName()))) {
+                Node resultNode = new Node(member);
+                if (!contains(resultNode, node)) {
+                    node[end] = resultNode;
+                    end++;
                 }
             }
         }
@@ -62,15 +60,13 @@ public class Function {
             for (int i = S; i < E; i++) {
                 tempMember = findMember(((Member) node[i].getData()).getName(), list);
                 for (Member member : list) {
-                    if (member.isMale()) {
-                        if ((member.getFather() != null && tempMember.getName().equals(member.getFather().getName()))
-                                || (tempMember.getFather() != null && member.getName().equals(tempMember.getFather().getName()))) {
-                            Node resultNode = new Node(member);
-                            if (!contains(resultNode, node)) {
-                                node[end] = resultNode;
-                                end++;
-                                check++;
-                            }
+                    if ((member.getFather() != null && tempMember.getName().equals(member.getFather().getName()))
+                            || (tempMember.getFather() != null && member.getName().equals(tempMember.getFather().getName()))) {
+                        Node resultNode = new Node(member);
+                        if (!contains(resultNode, node)) {
+                            node[end] = resultNode;
+                            end++;
+                            check++;
                         }
                     }
                 }
