@@ -18,11 +18,11 @@ b.   Xem danh sách thành viên
 
 c.   Sửa thông tin thành viên
 
-![enter image description here](https://i.imgur.com/YMVg3bY.png)
+![enter image description here](https://imgur.com/s3o6SBl.png)
 
 d.   **Tạo cây gia phả**
 
-![enter image description here](https://i.imgur.com/assKDVa.png)
+![enter image description here](https://imgur.com/tST90oe.png)
 
 **2. Thông tin cá nhân:**
 [Facebook][1] - [GitHub][2]
@@ -37,5 +37,5 @@ Thư viện tạo đồ thị [**GraphView**][4].
 
 [1]: https://www.facebook.com/nguyenvietngoc.quang
 [2]: https://github.com/nguyenvietngocquang
-[3]: https://github.com/nguyenvietngocquang/Family-Tree/blob/master/app.apk
+[3]: https://github.com/nguyenvietngocquang/Family-Tree/tree/master/outputs
 [4]: https://github.com/Team-Blox/GraphView
