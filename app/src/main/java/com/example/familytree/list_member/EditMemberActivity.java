@@ -2,7 +2,9 @@ package com.example.familytree.list_member;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -226,6 +228,48 @@ public class EditMemberActivity extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                 }
+            }
+        });
+
+        // Button Remove
+        Button btn_edit_remove = (Button) findViewById(R.id.btn_edit_remove);
+        btn_edit_remove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which) {
+                            case DialogInterface.BUTTON_POSITIVE:
+                                if (edit_member.getSpouse() != null) {
+                                    Member temp = Function.findMember(edit_member.getSpouse().getName(), list);
+                                    temp.setSpouse(null);
+                                }
+
+                                if (edit_member.isMale())
+                                    for (Member member : list) {
+                                        if (member.getFather() != null)
+                                            if (member.getFather().getName().equals(edit_member.getName()))
+                                                member.setFather(null);
+                                    }
+
+                                list.remove(edit_member);
+
+                                Intent intent = new Intent(EditMemberActivity.this, ListMemberActivity.class);
+                                intent.putExtra("remove_member", list);
+                                startActivity(intent);
+                                finish();
+                                break;
+
+                            case DialogInterface.BUTTON_NEGATIVE:
+                                break;
+                        }
+                    }
+                };
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(EditMemberActivity.this);
+                builder.setMessage("Are you sure want to remove this member?").setPositiveButton("Yes", dialogClickListener)
+                        .setNegativeButton("No", dialogClickListener).show();
             }
         });
 

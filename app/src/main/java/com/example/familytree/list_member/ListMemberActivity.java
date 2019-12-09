@@ -37,6 +37,9 @@ public class ListMemberActivity extends AppCompatActivity implements SearchView.
         if (intent.hasExtra("edit_member")) {
             list = (ArrayList<Member>) getIntent().getSerializableExtra("edit_member");
             Toast.makeText(ListMemberActivity.this, "Edit member successfully!", Toast.LENGTH_LONG).show();
+        } else if (intent.hasExtra("remove_member")) {
+            list = (ArrayList<Member>) getIntent().getSerializableExtra("remove_member");
+            Toast.makeText(ListMemberActivity.this, "Remove member successfully!", Toast.LENGTH_LONG).show();
         } else if (intent.hasExtra("list_member")) {
             list = (ArrayList<Member>) getIntent().getSerializableExtra("list_member");
         }

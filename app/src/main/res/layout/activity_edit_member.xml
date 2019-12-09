@@ -207,10 +207,12 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/ll_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/ll_edit_spouse"
-        android:layout_marginVertical="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="20dp"
         android:orientation="horizontal">
 
         <Button
@@ -226,16 +228,27 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/btn_edit_cancel"
+            android:id="@+id/btn_edit_remove"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="50dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Cancel"
+            android:text="Remove"
             android:textSize="20sp"
             android:textStyle="bold" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_edit_cancel"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ll_button"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="Cancel"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
 </RelativeLayout>
