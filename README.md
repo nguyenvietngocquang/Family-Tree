@@ -1,42 +1,59 @@
-
 # Family Tree app
 
-### Ứng dụng Android về cây gia phả (family tree)
+Android application about family tree - manage family members.
 
----
+![family_tree](https://i.imgur.com/gl1wIYY.jpg)
 
-**1.   Chức năng chính:**
+# Main functions
 
-![enter image description here](https://i.imgur.com/mTWPcQG.png)
+![main](https://i.imgur.com/e6EdExp.png)
 
-a.   Thêm thành viên
+### 1.   Add new member
 
-![enter image description here](https://i.imgur.com/dJrC4jb.png)
+![add_member](https://i.imgur.com/SABUC3A.png)
 
-b.   Xem danh sách thành viên
+### 2.   View member list
 
-![enter image description here](https://i.imgur.com/4ZJLFew.png)
+![list_member](https://i.imgur.com/4TVH3Qt.png)
 
-c.   Sửa thông tin thành viên
+### 3. Edit member information
 
-![enter image description here](https://i.imgur.com/pH4P4AL.png)
+![edit_member](https://i.imgur.com/UuteCRz.png)
 
-d.   **Tạo cây gia phả**
+### 4. Create - View family tree
 
-![enter image description here](https://i.imgur.com/1fPi7UQ.png)
+![view_tree](https://i.imgur.com/77fgCv0.png)
 
-**2. Thông tin cá nhân:**
-[Facebook][1] - [GitHub][2]
+# Tools
 
-![enter image description here](https://i.imgur.com/D0j59M2.png)
+|![android_studio](https://i.imgur.com/eZqmcJb.png)|**Android Studio**|
+|--|--|
+|![genymotion](https://i.imgur.com/hlD1U7L.png)|**Genymotion**|
 
-**3. File apk:**
-Download file apk tại [**đây**][3].
+# Device
 
-**4. Tham khảo:**
-Thư viện tạo đồ thị [**GraphView**][4].
+### Google Pixel 3
+- Android 9.0 - API level 28
+- 5.5 inch - 1080 x 2160 pixels
 
-[1]: https://www.facebook.com/nguyenvietngoc.quang
-[2]: https://github.com/nguyenvietngocquang
-[3]: https://github.com/nguyenvietngocquang/Family-Tree/tree/master/outputs
+# Apk File
+
+Download apk file [**here**][1].
+
+# About
+
+|||
+|--|--|
+|![facebook](https://i.imgur.com/ThsJPzE.png)|[nguyenvietngoc.quang][2]|
+|![github](https://i.imgur.com/lugPDaZ.png)|[nguyenvietngocquang][3]|
+|![gmail](https://i.imgur.com/B4e9HnA.jpg)|nguyenvietngocquang@gmail.com|
+|![hust](https://i.imgur.com/7X1zd15.png)|Hanoi University of Science and Technology|
+
+# References
+
+Library to display data in graph structures [**GraphView**][4].
+
+[1]: https://github.com/nguyenvietngocquang/Family-Tree/tree/master/outputs
+[2]: https://www.facebook.com/nguyenvietngoc.quang
+[3]: https://github.com/nguyenvietngocquang
 [4]: https://github.com/Team-Blox/GraphView
