@@ -1,3 +1,4 @@
+
 # Family Tree app
 
 ### Ứng dụng Android về cây gia phả (family tree)
@@ -6,28 +7,28 @@
 
 **1.   Chức năng chính:**
 
-![enter image description here](https://i.imgur.com/y75TO5E.png)
+![enter image description here](https://i.imgur.com/mTWPcQG.png)
 
 a.   Thêm thành viên
 
-![enter image description here](https://i.imgur.com/7ALxADl.png)
+![enter image description here](https://i.imgur.com/dJrC4jb.png)
 
 b.   Xem danh sách thành viên
 
-![enter image description here](https://i.imgur.com/0WGVv0m.png)
+![enter image description here](https://i.imgur.com/4ZJLFew.png)
 
 c.   Sửa thông tin thành viên
 
-![enter image description here](https://imgur.com/s3o6SBl.png)
+![enter image description here](https://i.imgur.com/pH4P4AL.png)
 
 d.   **Tạo cây gia phả**
 
-![enter image description here](https://imgur.com/tST90oe.png)
+![enter image description here](https://i.imgur.com/1fPi7UQ.png)
 
 **2. Thông tin cá nhân:**
 [Facebook][1] - [GitHub][2]
 
-![enter image description here](https://i.imgur.com/rQoN8dR.png)
+![enter image description here](https://i.imgur.com/D0j59M2.png)
 
 **3. File apk:**
 Download file apk tại [**đây**][3].
