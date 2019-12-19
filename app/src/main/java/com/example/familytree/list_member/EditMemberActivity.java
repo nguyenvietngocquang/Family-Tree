@@ -268,7 +268,7 @@ public class EditMemberActivity extends AppCompatActivity {
                 };
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(EditMemberActivity.this);
-                builder.setMessage("Are you sure want to remove this member?").setPositiveButton("Yes", dialogClickListener)
+                builder.setMessage("Are you sure?").setPositiveButton("Yes", dialogClickListener)
                         .setNegativeButton("No", dialogClickListener).show();
             }
         });

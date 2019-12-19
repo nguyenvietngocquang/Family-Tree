@@ -11,11 +11,11 @@
         android:id="@+id/tv_choose"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="40dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="150dp"
         android:layout_marginBottom="30dp"
         android:gravity="center"
-        android:text="You need to choose a member to view family tree of this member:"
+        android:text="Choose a member to view\nfamily tree of this member:"
         android:textColor="#000000"
         android:textSize="20sp" />
 
