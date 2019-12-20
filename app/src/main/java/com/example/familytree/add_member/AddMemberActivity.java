@@ -143,6 +143,10 @@ public class AddMemberActivity extends AppCompatActivity {
                     Toast.makeText(AddMemberActivity.this, "You need to input birthday!", Toast.LENGTH_LONG).show();
                 } else if (!father_name.equals("") && father_name.equals(spouse_name)) {
                     Toast.makeText(AddMemberActivity.this, "Father's name can't be the same as spouse's name!", Toast.LENGTH_LONG).show();
+                } else if (!father_name.equals("") && !Function.contains(father_name, list)) {
+                    Toast.makeText(AddMemberActivity.this, "Father doesn't exist!", Toast.LENGTH_LONG).show();
+                } else if (!spouse_name.equals("") && !Function.contains(spouse_name, list)) {
+                    Toast.makeText(AddMemberActivity.this, "Spouse doesn't exist!", Toast.LENGTH_LONG).show();
                 } else {
                     father = Function.findMember(father_name, list);
                     spouse = Function.findMember(spouse_name, list);
@@ -188,6 +192,5 @@ public class AddMemberActivity extends AppCompatActivity {
                 finish();
             }
         });
-
     }
 }

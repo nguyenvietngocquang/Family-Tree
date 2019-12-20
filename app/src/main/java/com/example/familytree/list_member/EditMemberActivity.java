@@ -167,8 +167,12 @@ public class EditMemberActivity extends AppCompatActivity {
                     Toast.makeText(EditMemberActivity.this, "Father's name can't be the same as member's name!", Toast.LENGTH_LONG).show();
                 } else if (!father_name.equals("") && father_name.equals(spouse_name)) {
                     Toast.makeText(EditMemberActivity.this, "Father's name can't be the same as spouse's name!", Toast.LENGTH_LONG).show();
+                } else if (!father_name.equals("") && !Function.contains(father_name, list)) {
+                    Toast.makeText(EditMemberActivity.this, "Father doesn't exist!", Toast.LENGTH_LONG).show();
                 } else if (!spouse_name.equals("") && spouse_name.equals(name)) {
                     Toast.makeText(EditMemberActivity.this, "Spouse's name can't be the same as member's name!", Toast.LENGTH_LONG).show();
+                } else if (!spouse_name.equals("") && !Function.contains(spouse_name, list)) {
+                    Toast.makeText(EditMemberActivity.this, "Spouse doesn't exist!", Toast.LENGTH_LONG).show();
                 } else {
                     father = Function.findMember(father_name, list);
                     spouse = Function.findMember(spouse_name, list);
