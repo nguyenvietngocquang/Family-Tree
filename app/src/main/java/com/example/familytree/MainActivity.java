@@ -13,6 +13,8 @@ import com.example.familytree.add_member.AddMemberActivity;
 import com.example.familytree.list_member.ListMemberActivity;
 import com.example.familytree.member.Function;
 import com.example.familytree.member.Member;
+import com.example.familytree.notification.NotificationActivity;
+import com.example.familytree.random_member.RandomMemberActivity;
 import com.example.familytree.view_tree.ChooseMemberActivity;
 
 import java.io.IOException;
@@ -38,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         }
         Collections.sort(list);
 
+        // Button Add Member
         Button btn_add = (Button) findViewById(R.id.btn_add);
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Button List Member
         Button btn_list = (Button) findViewById(R.id.btn_list);
         btn_list.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Button View Tree
         Button btn_tree = (Button) findViewById(R.id.btn_tree);
         btn_tree.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,6 +73,33 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Button Notification
+        Button btn_notification = (Button) findViewById(R.id.btn_notification);
+        btn_notification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, NotificationActivity.class);
+                intent.putExtra("notification", list);
+                startActivity(intent);
+            }
+        });
+
+        // Button Random Member
+        Button btn_random = (Button) findViewById(R.id.btn_random);
+        btn_random.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (list.size() == 0) {
+                    Toast.makeText(MainActivity.this, "There are no members!", Toast.LENGTH_LONG).show();
+                } else {
+                    Intent intent = new Intent(MainActivity.this, RandomMemberActivity.class);
+                    intent.putExtra("random_member", list);
+                    startActivity(intent);
+                }
+            }
+        });
+
+        // Button About
         Button btn_about = (Button) findViewById(R.id.btn_about);
         btn_about.setOnClickListener(new View.OnClickListener() {
             @Override

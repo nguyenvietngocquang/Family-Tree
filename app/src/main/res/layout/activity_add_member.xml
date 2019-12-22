@@ -213,19 +213,17 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/ll_add_spouse"
+        android:layout_centerHorizontal="true"
         android:layout_marginVertical="20dp"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/btn_add_member"
-            android:layout_width="150dp"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
-            android:layout_marginEnd="20dp"
-            android:layout_weight="1"
             android:background="@drawable/other_button"
             android:gravity="center"
             android:text="Add"
@@ -234,11 +232,9 @@
 
         <Button
             android:id="@+id/btn_add_cancel"
-            android:layout_width="150dp"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="50dp"
-            android:layout_weight="1"
+            android:layout_marginStart="30dp"
             android:background="@drawable/other_button"
             android:gravity="center"
             android:text="Cancel"

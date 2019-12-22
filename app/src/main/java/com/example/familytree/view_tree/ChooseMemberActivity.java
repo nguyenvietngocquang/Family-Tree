@@ -45,6 +45,8 @@ public class ChooseMemberActivity extends AppCompatActivity {
 
                 if (member.equals("")) {
                     Toast.makeText(ChooseMemberActivity.this, "You need to input name!", Toast.LENGTH_LONG).show();
+                } else if (!Function.contains(member, list)) {
+                    Toast.makeText(ChooseMemberActivity.this, "Member doesn't exist!", Toast.LENGTH_LONG).show();
                 } else {
                     Intent intent = new Intent(ChooseMemberActivity.this, ViewTreeActivity.class);
                     intent.putExtra("view_tree", list);
