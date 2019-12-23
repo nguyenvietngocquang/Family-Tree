@@ -51,7 +51,9 @@ public class ViewTreeActivity extends AppCompatActivity {
 
             @Override
             public void onBindViewHolder(ViewHolder viewHolder, Object data, int position) {
-                if (!((Member) data).isMale())
+                if (((Member) data).getName().equals(member))
+                    ((TreeViewHolder) viewHolder).cv_node.setCardBackgroundColor(Color.parseColor("#006600"));
+                else if (!((Member) data).isMale())
                     ((TreeViewHolder) viewHolder).cv_node.setCardBackgroundColor(Color.parseColor("#CC0000"));
                 ((TreeViewHolder) viewHolder).tv_node_name.setText(((Member) data).getName());
                 ((TreeViewHolder) viewHolder).tv_node_age.setText(String.valueOf(((Member) data).getAge()) + " years old");

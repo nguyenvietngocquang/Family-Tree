@@ -3,40 +3,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/night"
     android:orientation="vertical"
     tools:context=".list_member.ListMemberActivity">
 
-    <RelativeLayout
-        android:id="@+id/rl_top"
+    <SearchView
+        android:id="@+id/search_bar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="10dp">
-
-        <ImageButton
-            android:id="@+id/btn_list_cancel"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="10dp"
-            android:background="@null"
-            android:src="@drawable/btn_back" />
-
-        <SearchView
-            android:id="@+id/search_bar"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginHorizontal="10dp"
-            android:layout_toEndOf="@id/btn_list_cancel"
-            android:background="#CACACA" />
-    </RelativeLayout>
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="15dp"
+        android:background="#CACACA" />
 
     <RadioGroup
         android:id="@+id/radio_change_gender"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/rl_top"
+        android:layout_below="@id/search_bar"
         android:layout_margin="10dp"
-        android:background="#0066FF"
         android:gravity="center"
         android:orientation="horizontal">
 
@@ -45,6 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginHorizontal="15dp"
+            android:buttonTint="#FF0066"
             android:checked="true"
             android:gravity="center"
             android:text="All"
@@ -57,6 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginHorizontal="15dp"
+            android:buttonTint="#FF0066"
             android:checked="false"
             android:gravity="center"
             android:text="Male"
@@ -69,6 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginHorizontal="15dp"
+            android:buttonTint="#FF0066"
             android:checked="false"
             android:gravity="center"
             android:text="Female"
@@ -79,11 +66,25 @@
     </RadioGroup>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv"
+        android:id="@+id/rv_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@+id/btn_list_cancel"
         android:layout_below="@+id/radio_change_gender">
 
     </androidx.recyclerview.widget.RecyclerView>
+
+    <Button
+        android:id="@+id/btn_list_cancel"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginVertical="15dp"
+        android:background="@drawable/other_button"
+        android:gravity="center"
+        android:text="Cancel"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
 </RelativeLayout>

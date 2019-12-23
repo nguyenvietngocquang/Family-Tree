@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageButton;
+import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.SearchView;
 import android.widget.Toast;
@@ -45,7 +45,7 @@ public class ListMemberActivity extends AppCompatActivity implements SearchView.
         }
         Collections.sort(list);
 
-        rv = (RecyclerView) findViewById(R.id.rv);
+        rv = (RecyclerView) findViewById(R.id.rv_list);
         rv.setHasFixedSize(true);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         rv.setLayoutManager(llm);
@@ -77,7 +77,7 @@ public class ListMemberActivity extends AppCompatActivity implements SearchView.
         });
 
         // Button Cancel
-        ImageButton btn_list_cancel = (ImageButton) findViewById(R.id.btn_list_cancel);
+        Button btn_list_cancel = (Button) findViewById(R.id.btn_list_cancel);
         btn_list_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
