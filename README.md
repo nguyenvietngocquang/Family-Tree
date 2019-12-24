@@ -2,33 +2,37 @@
 
 Android application about family tree - manage family members.
 
-![family_tree](https://i.imgur.com/BAza3JS.jpg)
+![family_tree](https://i.imgur.com/pYlZqOS.jpg)
 
 # Main functions
 
-![main](https://i.imgur.com/nih5dwC.png)
+![main](https://i.imgur.com/osKRa8S.png)
 
 ### 1. Add new member
 
-![add_member](https://i.imgur.com/58IbslK.png)
+![add_member](https://i.imgur.com/kGcidaN.png)
 
 ### 2. View member list
 
-![list_member](https://i.imgur.com/6tLBt2z.png)
+![list_member](https://i.imgur.com/n6I6GZ1.png)
 
 ### 3. Edit member information
 
-![edit_member](https://i.imgur.com/mge2dVb.png)
+![edit_member](https://i.imgur.com/mIg4eKl.png)
 
-### 4. Create - View family tree
+### 4. View notification
 
-![view_tree](https://i.imgur.com/EoLUzjw.png)
+![notification](https://i.imgur.com/mAHY3Wp.png)
+
+### 5. Create - View family tree
+
+![view_tree](https://i.imgur.com/jmNRRda.png)
 
 # Tools
 
-|![android_studio](https://i.imgur.com/OoZD1wr.png)|**Android Studio**|
+|![android_studio](https://i.imgur.com/iKtNzvl.png)|**Android Studio**|
 |--|--|
-|![genymotion](https://i.imgur.com/YhKaNyp.png)|**Genymotion**|
+|![genymotion](https://i.imgur.com/2BUcnqA.png)|**Genymotion**|
 
 # Device
 
@@ -44,10 +48,10 @@ Download apk file [**here**][1].
 
 |||
 |--|--|
-|![facebook](https://i.imgur.com/ZhMaqWL.png)|[nguyenvietngoc.quang][2]|
-|![github](https://i.imgur.com/Fc9ntfw.png)|[nguyenvietngocquang][3]|
-|![gmail](https://i.imgur.com/ilAQTdn.jpg)|nguyenvietngocquang@gmail.com|
-|![hust](https://i.imgur.com/0ZryF9D.png)|Hanoi University of Science and Technology|
+|![facebook](https://i.imgur.com/bDF38i8.png)|[nguyenvietngoc.quang][2]|
+|![github](https://i.imgur.com/NHicdye.png)|[nguyenvietngocquang][3]|
+|![gmail](https://i.imgur.com/xAXN8NQ.jpg)|nguyenvietngocquang@gmail.com|
+|![hust](https://i.imgur.com/P4ZvWq9.png)|Hanoi University of Science and Technology|
 
 # References
 
